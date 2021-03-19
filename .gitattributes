@@ -1,0 +1,4 @@
+*.ipynb !text !filter !merge !diff
+*.py !text !filter !merge !diff
+*.md !text !filter !merge !diff
+*.json !text !filter !merge !diff
