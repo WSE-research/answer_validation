@@ -5,6 +5,7 @@
 
 
 import json
+import re
 from SPARQLWrapper import SPARQLWrapper, JSON
 from tqdm import tqdm
 
@@ -36,7 +37,7 @@ def save_json(data, file_name):
 # In[14]:
 
 
-data = open_json("qald-9-Dbpedia.json")
+data = open_json("../processed_data/QALD/qald-9-Dbpedia.json")
 
 
 
@@ -77,6 +78,18 @@ for i in range(len(data)):
                                     labels.append(result["label"]["value"])
                         except:
                             pass
+            
+            for entity in re.findall(r"<(.*?)>", answer['SPARQL']):
+                try:
+                    sparql.setQuery(query.format(uri=entity[k]['value']))
+                    sparql.setReturnFormat(JSON)
+                    results = sparql.query().convert()
+
+                    for result in results["results"]["bindings"]:
+                        if result["label"]["value"] not in labels:
+                            labels.append(result["label"]["value"])
+                except:
+                    pass
 
         answers.append(labels)
         
