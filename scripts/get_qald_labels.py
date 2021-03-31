@@ -62,7 +62,7 @@ for i in range(len(data)):
     print("--------", i, "--------")
     answers = list()
     question = data[i]
-    for answer in tqdm(question['answers']):
+    for answer in question['answers']:
         labels = list()
         if answer['DBpedia']:
             for entity in answer['DBpedia']:
