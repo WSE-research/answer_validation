@@ -1,0 +1,1951 @@
+[
+    {
+        "uid": "201",
+        "question_text": "What is the founding year of the brewery that produces Pilsner Urquell?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?date WHERE { wd:Q948831 wdt:P571 ?date . } ",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT DISTINCT xsd:date(?num) WHERE { <http://dbpedia.org/resource/Pilsner_Urquell> <http://dbpedia.org/property/brewery> ?uri . ?uri dbo:foundingYear ?num }",
+        "answers": "",
+        "question_text_ru": [
+            "В каком году была основана пивоварня, производящая Pilsner Urquell?",
+            "Год основаная пивоварни, производящей Pilsner Urquell?",
+            "Год основания завода, который производит Pilsner Urquell?"
+        ],
+        "question_text_de": [
+            "Wann wurde die Brauerei, die Pilner Urquell braut, gegründet?"
+        ]
+    },
+    {
+        "uid": "171",
+        "question_text": "When did the Boston Tea Party take place?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q19024> <http://www.wikidata.org/prop/direct/P585> ?uri}",
+        "query_dbpedia": "SELECT DISTINCT ?d WHERE { <http://dbpedia.org/resource/Boston_Tea_Party> <http://dbpedia.org/property/date> ?d }",
+        "answers": "",
+        "question_text_ru": [
+            "Когда произошло \"Бостонское чаепитие\"?",
+            "Когда началось Бостонское чаепитие?",
+            "Когда произошло Бостонское чаепитие?"
+        ],
+        "question_text_de": [
+            "Wann war die Boston Tea Party?"
+        ]
+    },
+    {
+        "uid": "13",
+        "question_text": "Which politicians were married to a German?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { ?uri <http://www.wikidata.org/prop/direct/P106> <http://www.wikidata.org/entity/Q82955> . ?uri <http://www.wikidata.org/prop/direct/P26> ?spouse . { ?spouse <http://www.wikidata.org/prop/direct/P27> <http://www.wikidata.org/entity/Q183> . } UNION { ?spouse <http://www.wikidata.org/prop/direct/P19>/<http://www.wikidata.org/prop/direct/P17> <http://www.wikidata.org/entity/Q183> } } ",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Politician> ; <http://dbpedia.org/ontology/spouse> ?spouse { ?spouse <http://dbpedia.org/ontology/birthPlace> <http://dbpedia.org/resource/Germany> } UNION { ?spouse <http://dbpedia.org/ontology/birthPlace> ?p . ?p <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Germany> } }",
+        "answers": "",
+        "question_text_ru": [
+            "Какие политики были женаты на немках?",
+            "Какие политики имели жен германского происхождения?",
+            "Кто из политиков был женат на немке?"
+        ],
+        "question_text_de": [
+            "Welche Politiker waren mit einem Deutschen verheiratet?"
+        ]
+    },
+    {
+        "uid": "175",
+        "question_text": "When did Muhammad die?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?date WHERE { wd:Q9458 wdt:P570 ?date . }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT xsd:date(?date) WHERE { res:Muhammad dbo:deathDate ?date }",
+        "answers": "",
+        "question_text_ru": [
+            "Когда умер пророк Мухаммед?",
+            "Когда умер Мухаммед?"
+        ],
+        "question_text_de": [
+            "Wann starb Muhammad?"
+        ]
+    },
+    {
+        "uid": "42",
+        "question_text": "Which countries have places with more than two caves?",
+        "query_wikidata": " SELECT ?s1 WHERE { ?s1 <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q6256> . ?s2  <http://www.wikidata.org/prop/direct/P17>  ?s1 . ?s2  <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q35509> . } GROUP BY ?s1 HAVING ( COUNT(?s2) > 2 )",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?uri WHERE { ?cave rdf:type dbo:Cave ; dbo:location ?uri . ?uri rdf:type dbo:Country } GROUP BY ?uri HAVING ( COUNT(?cave) > 2 )",
+        "answers": "",
+        "question_text_ru": [
+            "В каких странах есть места с более, чем двумя пещерами?",
+            "В каких странах есть места с более чем двумя пещерами?",
+            "В каких странах есть, имеющие более двух пещер?"
+        ],
+        "question_text_de": [
+            "Welche Länder haben Orte mit mehr als zwei Höhlen?"
+        ]
+    },
+    {
+        "uid": "4",
+        "question_text": "Which airports are located in California, USA?",
+        "query_wikidata": "SELECT DISTINCT ?s1 WHERE { ?s1  ?p1  <http://www.wikidata.org/entity/Q1248784> . ?s1  <http://www.wikidata.org/prop/direct/P276>  <http://www.wikidata.org/entity/Q99> .  }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Airport> { ?uri <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/California> } UNION { ?uri <http://dbpedia.org/ontology/city> <http://dbpedia.org/resource/California> } UNION { ?uri <http://dbpedia.org/ontology/city> ?city . ?city <http://dbpedia.org/ontology/isPartOf> <http://dbpedia.org/resource/California> } UNION { ?uri <http://dbpedia.org/ontology/operator> <http://dbpedia.org/resource/California> } }",
+        "answers": "",
+        "question_text_ru": [
+            "Какие аэропорты находятся в Калифорнии (США)?",
+            "Какие аэропорты расположены в штате США Калифорнии?"
+        ],
+        "question_text_de": [
+            "Welche Flughäfen gibt es in Kalifornien, USA?"
+        ]
+    },
+    {
+        "uid": "37",
+        "question_text": "What are the nicknames of San Francisco?",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": "PREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX foaf:<http://xmlns.com/foaf/0.1/> SELECT DISTINCT ?string WHERE { res:San_Francisco foaf:nick ?string }",
+        "answers": "",
+        "question_text_ru": [
+            "Какие прозвища есть у Сан-Франциско?",
+            "Какие прозвища у Сан-Франциско?",
+            "Какие неофициальные названия есть у города Сан-Франциско?"
+        ],
+        "question_text_de": [
+            "Was sind die Spitznamen von San Francisco?"
+        ]
+    },
+    {
+        "uid": "32",
+        "question_text": "What is Angela Merkel’s birth name?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q567 <http://www.wikidata.org/prop/direct/P1477>  ?o1 .  }",
+        "query_dbpedia": "PREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?string WHERE { res:Angela_Merkel dbp:birthName ?string }",
+        "answers": "",
+        "question_text_ru": [
+            "Как звали Ангелу Меркель при рождении?",
+            "Какое имя было дано Ангеле Меркель при рождении?",
+            "Какое имя было у Ангелы Меркель при рождении?"
+        ],
+        "question_text_de": [
+            "Wie ist Angela Merkels Geburtsname?"
+        ]
+    },
+    {
+        "uid": "31",
+        "question_text": "Who is the mayor of Berlin?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q64>  <http://www.wikidata.org/prop/direct/P6>  ?o1 .  }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX res: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { res:Berlin dbp:leader ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "Кто мэр Берлина?"
+        ],
+        "question_text_de": [
+            "Wer ist Bürgermeister von Berlin?"
+        ]
+    },
+    {
+        "uid": "29",
+        "question_text": "Which countries in the European Union adopted the Euro?",
+        "query_wikidata": " SELECT DISTINCT ?s1 WHERE { <http://www.wikidata.org/entity/Q458>  <http://www.wikidata.org/prop/direct/P150>  ?s1 .  ?s1  <http://www.wikidata.org/prop/direct/P38>  <http://www.wikidata.org/entity/Q4916> . }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Country> { ?uri <http://dbpedia.org/ontology/currency> <http://dbpedia.org/resource/Euro> } UNION { ?uri <http://dbpedia.org/property/currencyCode> \"EUR\"@en } }",
+        "answers": "",
+        "question_text_ru": [
+            "Какие страны Европейского союза перешли на евро?",
+            "Какие страны Европейского Союза стали использовать евро?",
+            "Какие страны Европейского Союза приняли евро?"
+        ],
+        "question_text_de": [
+            "Welche Länder der Europäischen Union haben den Euro?"
+        ]
+    },
+    {
+        "uid": "23",
+        "question_text": "Which software has been published by Mean Hamster Software?",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": "PREFIX res: <http://dbpedia.org/resource/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX onto: <http://dbpedia.org/ontology/> PREFIX prop: <http://dbpedia.org/property/> SELECT DISTINCT ?uri WHERE { ?uri rdf:type onto:Software { ?uri prop:publisher \"Mean Hamster Software\"@en } UNION { ?uri onto:publisher res:Mean_Hamster_Software } }",
+        "answers": "",
+        "question_text_ru": [
+            "Какое программное обеспечение опубликовано компанией Mean Hamster Software?",
+            "Какое программно обеспечение было выпущено Mean Hamster Software?",
+            "Какое программное обеспечение было выпущено компанией Mean Hamster Software?"
+        ],
+        "question_text_de": [
+            "Welche Software wurde durch Mean Hamster Software veröffentlicht?"
+        ]
+    },
+    {
+        "uid": "68",
+        "question_text": "Which country was Bill Gates born in?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q5284> <http://www.wikidata.org/prop/direct/P19>/<http://www.wikidata.org/prop/direct/P17> ?uri }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbr: <http://dbpedia.org/resource/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?country WHERE { { dbr:Bill_Gates dbo:birthPlace ?birthPlace . ?birthPlace dbo:country ?country } UNION { dbr:Bill_Gates dbo:birthPlace ?birthPlace . ?birthPlace dbo:isPartOf ?place . ?place dbo:country ?country } }",
+        "answers": "",
+        "question_text_ru": [
+            "В какой стране родился Билл Гейтс?",
+            "Из какой страны родом Билл Гейтс?"
+        ],
+        "question_text_de": [
+            "In welchen Land wurde Bill Gates geboren?"
+        ]
+    },
+    {
+        "uid": "22",
+        "question_text": "How many grand-children did Jacques Cousteau have?",
+        "query_wikidata": "SELECT (COUNT(DISTINCT ?uri) as ?count) WHERE { <http://www.wikidata.org/entity/Q83233> <http://www.wikidata.org/prop/direct/P40>/<http://www.wikidata.org/prop/direct/P40> ?uri }",
+        "query_dbpedia": "SELECT COUNT(DISTINCT ?y AS ?y) WHERE { <http://dbpedia.org/resource/Jacques_Cousteau> <http://dbpedia.org/ontology/child> ?x . ?x <http://dbpedia.org/ontology/child> ?y . }",
+        "answers": "",
+        "question_text_ru": [
+            "Сколько внуков было у Жак-Ива Кусто?",
+            "Сколько внуков было у Жака Ива Кусто?",
+            "Сколько внуков у Жака Кусто?"
+        ],
+        "question_text_de": [
+            "Wie viele Enkelkinder hatte Jacques Cousteau?"
+        ]
+    },
+    {
+        "uid": "214",
+        "question_text": "Give me all professional skateboarders from Sweden.",
+        "query_wikidata": " SELECT ?s1 WHERE { ?s1  <http://www.wikidata.org/prop/direct/P641> <http://www.wikidata.org/entity/Q842284> . ?s1  <http://www.wikidata.org/prop/direct/P19> ?o1 . ?o1 <http://www.wikidata.org/prop/direct/P131>* <http://www.wikidata.org/entity/Q34> . }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbp: <http://dbpedia.org/property/> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { ?uri dbo:occupation dbr:Skateboarder { ?uri dbo:birthPlace dbr:Sweden } UNION { ?uri dbo:birthPlace ?place . ?place dbo:country dbr:Sweden } }",
+        "answers": "",
+        "question_text_ru": [
+            "Назовите всех профессиональных скейтбордистов из Швеции.",
+            "Перечислите всех профессиональных скейтбордистов Швеции.",
+            "Назовите профессиональных скейтбордистов из Швейцарии."
+        ],
+        "question_text_de": [
+            "Liste alle professionellen Skater aus Schweden auf."
+        ]
+    },
+    {
+        "uid": "129",
+        "question_text": "Who does the voice of Bart Simpson?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  <http://www.wikidata.org/entity/Q5480> <http://www.wikidata.org/prop/direct/P725> ?uri }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Bart_Simpson> <http://dbpedia.org/property/voiceactor> ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "Кто озвучивает Барта Симпсона?",
+            "Кто озвучивал Берта Симпсона?"
+        ],
+        "question_text_de": [
+            "Wer spricht Bart Simpson?"
+        ]
+    },
+    {
+        "uid": "183",
+        "question_text": "Who was Tom Hanks married to?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q2263>  <http://www.wikidata.org/prop/direct/P26>  ?o1 .  }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT DISTINCT ?uri WHERE { dbr:Tom_Hanks dbo:spouse ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "На ком был женат Том Хенкс?",
+            "На ком был женат Том Хэнкс?"
+        ],
+        "question_text_de": [
+            "Mit wem war Tom Hanks verheiratet?"
+        ]
+    },
+    {
+        "uid": "181",
+        "question_text": "Through which countries does the Yenisei river flow?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q78707> <http://www.wikidata.org/prop/direct/P17> ?uri . }",
+        "query_dbpedia": "PREFIX res: <http://dbpedia.org/resource/> PREFIX dbp: <http://dbpedia.org/property/> SELECT DISTINCT ?uri WHERE { res:Yenisei_River <http://dbpedia.org/ontology/country> ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "Через какие страны протекает Енисей?",
+            "Через какие страны протекает река Енисей?"
+        ],
+        "question_text_de": [
+            "Durch welche Länder fließt der Yenisei?"
+        ]
+    },
+    {
+        "uid": "7",
+        "question_text": "Give me all cars that are produced in Germany.",
+        "query_wikidata": "SELECT DISTINCT * WHERE { ?s1 <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q59773381> .  ?s1 <http://www.wikidata.org/prop/direct/P176> ?o1 . ?o1  <http://www.wikidata.org/prop/direct/P17>  <http://www.wikidata.org/entity/Q183> . ?o1  <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q786820> . }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Automobile> { ?uri <http://dbpedia.org/ontology/assembly> <http://dbpedia.org/resource/Germany> } UNION { ?uri <http://dbpedia.org/property/assembly> <http://dbpedia.org/resource/Germany> } UNION { { ?uri <http://dbpedia.org/ontology/manufacturer> ?x } UNION { ?uri <http://dbpedia.org/property/manufacturer> ?x } { ?x <http://dbpedia.org/ontology/locationCountry> <http://dbpedia.org/resource/Germany> } UNION { ?x <http://dbpedia.org/ontology/location> <http://dbpedia.org/resource/Germany> } } }",
+        "answers": "",
+        "question_text_ru": [
+            "Выдай мне все автомобили, производящиеся в Германии.",
+            "Перечислите все марки автомобили, производящихся в Германии?",
+            "Назовите автомобили, которые производятся в Германии."
+        ],
+        "question_text_de": [
+            "Liste alle Autos auf, die in Deutschland produziert werden."
+        ]
+    },
+    {
+        "uid": "135",
+        "question_text": "When did Michael Jackson die?",
+        "query_wikidata": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q2831>  <http://www.wikidata.org/prop/direct/P570>  ?o1 .  } ",
+        "query_dbpedia": "SELECT DISTINCT ?date WHERE { <http://dbpedia.org/resource/Michael_Jackson> <http://dbpedia.org/ontology/deathDate> ?date }",
+        "answers": "",
+        "question_text_ru": [
+            "Когда умер Майкл Джексон?"
+        ],
+        "question_text_de": [
+            "Wann ist Michael Jackson gestorben?"
+        ]
+    },
+    {
+        "uid": "50",
+        "question_text": "What is the highest volcano in Africa?",
+        "query_wikidata": " SELECT DISTINCT ?s1 WHERE { ?s1  <http://www.wikidata.org/prop/direct/P30>  <http://www.wikidata.org/entity/Q15> . ?s1  <http://www.wikidata.org/prop/direct/P31>/<http://www.wikidata.org/prop/direct/P279>*  <http://www.wikidata.org/entity/Q8072> . ?s1 <http://www.wikidata.org/prop/direct/P2044> ?o1 . } ORDER BY DESC(?o1) LIMIT 1",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Volcano> ; <http://dbpedia.org/ontology/locatedInArea> ?area . ?area dct:subject dbc:Countries_in_Africa . ?uri <http://dbpedia.org/ontology/elevation> ?elevation } ORDER BY DESC(?elevation) LIMIT 1",
+        "answers": "",
+        "question_text_ru": [
+            "Какой вулкан Африки самый высокий?",
+            "Самый высокий вулкан Африки?",
+            "Какой вулкан в Африке самый высокий?"
+        ],
+        "question_text_de": [
+            "Wie heißt der höchste Vulkan in Afrika?"
+        ]
+    },
+    {
+        "uid": "39",
+        "question_text": "Which poet wrote the most books?",
+        "query_wikidata": " SELECT DISTINCT ?s1 (COUNT(?s2) as ?c ) WHERE { ?s1  <http://www.wikidata.org/prop/direct/P106>  <http://www.wikidata.org/entity/Q49757> . ?s2  <http://www.wikidata.org/prop/direct/P50>  ?s1 . ?s2  <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q571> .  } GROUP BY ?s1 ORDER BY DESC(COUNT(?s2)) OFFSET 0 LIMIT 1",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri <http://dbpedia.org/ontology/occupation> <http://dbpedia.org/resource/Poet> . ?x <http://dbpedia.org/ontology/author> ?uri . ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Book> . } ORDER BY DESC(COUNT(?x)) OFFSET 0 LIMIT 1",
+        "answers": "",
+        "question_text_ru": [
+            "Какой писатель написал больше всего книг?",
+            "Какой поэт написал наибольшее число книг?",
+            "Какой поэт написал больше всего книг?"
+        ],
+        "question_text_de": [
+            "Welcher Dichter hat die meisten Bücher geschrieben?"
+        ]
+    },
+    {
+        "uid": "83",
+        "question_text": "Give me all gangsters from the prohibition era.",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dct: <http://purl.org/dc/terms/> PREFIX dbc: <http://dbpedia.org/resource/Category:> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { ?uri dbo:occupation dbr:Gangster ; dct:subject dbc:Prohibition-era_gangsters }",
+        "answers": "",
+        "question_text_ru": [
+            "Выдай мне всех гангстеров эпохи сухого закона.",
+            "Перечислите всех гангстеров из эпохи сухого закона.",
+            "Назовите всех гангстеров времен сухого закона."
+        ],
+        "question_text_de": [
+            "Liste alle Gangster aus der Zeit der Prohibition auf."
+        ]
+    },
+    {
+        "uid": "71",
+        "question_text": "Give me all spacecrafts that flew to Mars.",
+        "query_wikidata": "SELECT ?s1 where  { ?s1 <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q389459> } ",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbc: <http://dbpedia.org/resource/Category:> PREFIX dct: <http://purl.org/dc/terms/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> SELECT DISTINCT ?s WHERE { ?s dct:subject dbc:Mars_rovers ; rdf:type ?type FILTER ( ?type IN (dbo:Satellite, dbo:ArtificialSatellite) ) }",
+        "answers": "",
+        "question_text_ru": [
+            "Выдай мне все космические аппараты летавшие на Марс.",
+            "Перечислите все космические корабли, совершившие полет на Марс.",
+            "Назовите космические корабли, которые летали на Марс."
+        ],
+        "question_text_de": [
+            "Liste alle Rahmfahrzeuge auf, die zum Mars geflogen sind."
+        ]
+    },
+    {
+        "uid": "213",
+        "question_text": "Show me all Czech movies.",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q11424> . { ?uri <http://www.wikidata.org/prop/direct/P495> <http://www.wikidata.org/entity/Q213> . } UNION { ?uri <http://www.wikidata.org/prop/direct/P495> <http://www.wikidata.org/entity/Q33946> . } }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/Film> ; <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Czech_Republic> }",
+        "answers": "",
+        "question_text_ru": [
+            "Покажи мне все чешские фильмы.",
+            "Перечислите все чешские фильмы.",
+            "Покажите все датские фильмы."
+        ],
+        "question_text_de": [
+            "Liste alle tschechischen Filme auf."
+        ]
+    },
+    {
+        "uid": "144",
+        "question_text": "Whom did Lance Bass marry?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q443120> <http://www.wikidata.org/prop/direct/P26> ?uri . }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { {<http://dbpedia.org/resource/Lance_Bass> dbo:spouse ?uri} UNION {?uri dbo:spouse <http://dbpedia.org/resource/Lance_Bass>} }",
+        "answers": "",
+        "question_text_ru": [
+            "На ком женат Ланс Басс?",
+            "На ком женился Лэнс Басс?"
+        ],
+        "question_text_de": [
+            "Wen hat Lance Bass geheiratet?"
+        ],
+        "question_text_lt": [
+            "Su kuo vedė Lance'as Bassas?"
+        ]
+    },
+    {
+        "uid": "131",
+        "question_text": "What languages are spoken in Pakistan?",
+        "query_wikidata": "# What languages are spoken in Pakistan? PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT * { wd:Q843 wdt:P2936 ?uri . }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Pakistan> <http://dbpedia.org/ontology/language> ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "На каких языках говорят в Пакистане?"
+        ],
+        "question_text_de": [
+            "Welche Sprachen werden in Pakistan gesprochen?"
+        ],
+        "question_text_lt": [
+            "Kokiomis kalbomis kalbama Pakistane?"
+        ]
+    },
+    {
+        "uid": "120",
+        "question_text": "Who is the daughter of Bill Clinton married to?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT * { wd:Q1124 wdt:P40 ?child . ?child wdt:P26 ?uri ",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX dbp: <http://dbpedia.org/property/> PREFIX dbr: <http://dbpedia.org/resource/> SELECT DISTINCT ?uri WHERE { dbr:Bill_Clinton dbo:child ?child . ?child dbo:spouse ?uri . ?uri rdfs:label ?string }",
+        "answers": "",
+        "question_text_ru": [
+            "За кем замужем дочь Билла Клинтона?"
+        ],
+        "question_text_de": [
+            "Mit wem ist die Tochter von Bill Clinton verheiratet?"
+        ],
+        "question_text_lt": [
+            "Kas vedė Billo Clintono dukra?"
+        ]
+    },
+    {
+        "uid": "164",
+        "question_text": "Who was on the Apollo 11 mission?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q43653> <http://www.wikidata.org/prop/direct/P1029> ?uri}",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { <http://dbpedia.org/resource/Apollo_11> <http://dbpedia.org/property/crewMembers> ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "Кто был в составе миссии Аполлон 11?",
+            "Кто учавствовал в миссии Аполлон-11?"
+        ],
+        "question_text_de": [
+            "Wer hat an der Apollo 11-Mission teilgenommen?"
+        ],
+        "question_text_lt": [
+            "Kas dalyvavo „Apollo 11“ misijoje?"
+        ]
+    },
+    {
+        "uid": "63",
+        "question_text": "Who was called Scarface?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri { ?uri wdt:P1449 ?nickname . FILTER REGEX(STR(?nickname), \"^Scarface$\") }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> SELECT ?uri WHERE { ?uri dbo:alias ?alias FILTER contains(lcase(?alias), \"scarface\") }",
+        "answers": "",
+        "question_text_ru": [
+            "Кого звали \"Лицом со шрамом\"?",
+            "Кого звали Лицо со шрамом?"
+        ],
+        "question_text_de": [
+            "Wer wurde Scarface genannt?"
+        ],
+        "question_text_lt": [
+            "Kas buvo vadinamas „Scarface“?"
+        ]
+    },
+    {
+        "uid": "27",
+        "question_text": "Which rivers flow into the North Sea?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q4022> . ?uri <http://www.wikidata.org/prop/direct/P403> <http://www.wikidata.org/entity/Q1693> . }",
+        "query_dbpedia": "SELECT DISTINCT ?uri WHERE { ?uri a <http://dbpedia.org/ontology/River> ; <http://dbpedia.org/ontology/riverMouth> <http://dbpedia.org/resource/North_Sea> }",
+        "answers": "",
+        "question_text_ru": [
+            "Какие реки впадают в Северное Море?",
+            "Какие реки впадают в Северный море?"
+        ],
+        "question_text_de": [
+            "Welche Flüsse münden in die Nordsee?"
+        ],
+        "question_text_lt": [
+            "Kurios upės teka į Šiaurės jūrą?"
+        ]
+    },
+    {
+        "uid": "138",
+        "question_text": "Give me the capitals of all countries in Africa.",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { ?country <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q6256> . ?country  <http://www.wikidata.org/prop/direct/P30> <http://www.wikidata.org/entity/Q15> . ?country <http://www.wikidata.org/prop/direct/P36> ?uri . }",
+        "query_dbpedia": "PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX dbc: <http://dbpedia.org/resource/Category:> PREFIX dct: <http://purl.org/dc/terms/> SELECT DISTINCT ?uri WHERE { ?country dct:subject dbc:Countries_in_Africa ; dbo:capital ?uri }",
+        "answers": "",
+        "question_text_ru": [
+            "Назовите все столицы всех стран Африки."
+        ],
+        "question_text_de": [
+            "Liste die Hauptstädte aller Länder in Afrika auf."
+        ]
+    },
+    {
+        "uid": "43",
+        "question_text": "Give me the websites of companies with more than 500000 employees.",
+        "query_wikidata": "SELECT DISTINCT ?string WHERE { ?uri <http://www.wikidata.org/prop/direct/P31>/(<http://www.wikidata.org/prop/direct/P279>*) <http://www.wikidata.org/entity/Q4830453> . ?uri <http://www.wikidata.org/prop/direct/P1128> ?number . FILTER(?number > 500000) . ?uri <http://www.wikidata.org/prop/direct/P856> ?string . }",
+        "query_dbpedia": "PREFIX foaf: <http://xmlns.com/foaf/0.1/> PREFIX dbo: <http://dbpedia.org/ontology/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT distinct ?web WHERE { ?sub dbo:numberOfEmployees ?obj . ?sub foaf:homepage ?web FILTER( xsd:integer(?obj) > 500000 ) . }",
+        "answers": "",
+        "question_text_ru": [
+            "Покажите мне сайты компаний, у которых более 500000 работников."
+        ],
+        "question_text_de": [
+            "Liste die Internetseiten von Unternehmen mit mehr als 500000 Mitarbeitern auf."
+        ],
+        "question_text_lt": [
+            "Pasakyk man kompanijų svetaines su daugiau nei 500.000 darbuotojų."
+        ]
+    },
+    {
+        "uid": "99",
+        "question_text": "What is the time zone of Salt Lake City?",
+        "query_wikidata": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q23337>  <http://www.wikidata.org/prop/direct/P421>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "In welcher Zeitzone liegt Salt Lake City?",
+            "Was ist die Zeitzone von Salt Lake City?"
+        ],
+        "question_text_ru": [
+            "В каком часов поясе расположен Солт-Лейк-Сити?",
+            "Какой часовой пояс в Солт-Лейк-Сити"
+        ],
+        "question_text_lt": [
+            "Kokia Solt Leik Sičio laiko zona?"
+        ]
+    },
+    {
+        "uid": "98",
+        "question_text": "Who killed Caesar?",
+        "query_wikidata": "SELECT DISTINCT ?o1 WHERE { <http://www.wikidata.org/entity/Q1048>  <http://www.wikidata.org/prop/direct/P157>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer hat Caesar ermordet?",
+            "Wer hat Cäsar getötet?"
+        ],
+        "question_text_ru": [
+            "Кто убил Цезаря?",
+            "Кто убил Цезаря"
+        ],
+        "question_text_lt": [
+            "Kas nužudė Cezarį?"
+        ]
+    },
+    {
+        "uid": "86",
+        "question_text": "What is the highest mountain in Germany?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q183>  <http://www.wikidata.org/prop/direct/P610>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie heißt der höchste Berg in Deutschland?"
+        ],
+        "question_text_ru": [
+            "Какая гора является самой высокой в Германии?",
+            "Самая высокая гора Германии?",
+            "Самая высокая гора в Германии?",
+            "Какая гора самая высокая в Германии?"
+        ],
+        "question_text_ua": [
+            "Найвища гора в Німеччині?"
+        ]
+    },
+    {
+        "uid": "84",
+        "question_text": "Which American presidents were in office during the Vietnam War?",
+        "query_wikidata": "SELECT DISTINCT ?o WHERE { <http://www.wikidata.org/entity/Q8740>  <http://www.wikidata.org/prop/direct/P580>  ?startWar . <http://www.wikidata.org/entity/Q8740>  <http://www.wikidata.org/prop/direct/P582>  ?endWar . <http://www.wikidata.org/entity/Q30>  <http://www.wikidata.org/prop/P6> ?blank . ?blank <http://www.wikidata.org/prop/statement/P6> ?o . ?blank <http://www.wikidata.org/prop/qualifier/P580> ?start . ?blank <http://www.wikidata.org/prop/qualifier/P582> ?end . FILTER (?startWar < ?start && ?endWar > ?end)} ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche amerikanischen Präsidenten waren während des Vietnamkrieges im Amt?"
+        ],
+        "question_text_ru": [
+            "Каких американских президентов застала война во Вьетнаме?",
+            "Кто был американским президентом во время войны во Вьетнаме?",
+            "Американский президент, который был во время войны во Вьетнаме?",
+            "Какие американские президенты находились у власти во время войны во Вьетнаме?"
+        ],
+        "question_text_ua": [
+            "Який американський президент правив під час війни у В'єтнамі?"
+        ]
+    },
+    {
+        "uid": "81",
+        "question_text": "Butch Otter is the governor of which U.S. state?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?res WHERE { ?res wdt:P6 wd:Q39593 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Butch Otter ist der Gouverneur welches US-Staates?"
+        ],
+        "question_text_ru": [
+            "Губернатором какого штата является Бутч Оттер?",
+            "Губернатором какого штата США является Бутч Оттер?"
+        ],
+        "question_text_ua": [
+            "Губернатором якого штату є Бутч Оттер?"
+        ]
+    },
+    {
+        "uid": "73",
+        "question_text": "How many gold medals did Michael Phelps win at the 2008 Olympics?",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Goldmedaillen hat Michael Phelbs bei den Olympischen Spielen 2008 gewonnen?"
+        ],
+        "question_text_ru": [
+            "Сколько золотых медалей выйграл Майкл Фелпс в Олимпиаде-2008?",
+            "Сколько золотых медалей завоевал Майкл Фелпс в Олимпийских играх в 2008 года?",
+            "Сколько золотых медалей выиграл Михаэль Фелпс на Олимпийских играх в 2008 году?",
+            "Сколько золотых медалей выиграл Майкл Фэлпс на Олимпиаде 2008?"
+        ],
+        "question_text_ua": [
+            "Скільки золотих медалей виграв Міхаель Фелпс на Олімпійских іграх 2008 року?"
+        ]
+    },
+    {
+        "uid": "66",
+        "question_text": "Which artists were born on the same date as Rachel Stevens?",
+        "query_wikidata": " SELECT ?s WHERE { <http://www.wikidata.org/entity/Q241665>  <http://www.wikidata.org/prop/direct/P569>  ?date . ?s <http://www.wikidata.org/prop/direct/P106> / <http://www.wikidata.org/prop/direct/P279>*   <http://www.wikidata.org/entity/Q483501> . ?s  <http://www.wikidata.org/prop/direct/P569>  ?date . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Künstler sind am gleichen Tag wie Rachel Stevens geboren?"
+        ],
+        "question_text_ru": [
+            "Кто из артистов родился в один день с Рэйчел Стивенс?",
+            "Какие художники родились в один день с Рэйчел Стивенс?",
+            "Какие актеры родились в тоже день с Рэйчел Стивенс?",
+            "Какие артисты родились в тот же день, что и Рейчел Стивенс?"
+        ],
+        "question_text_ua": [
+            "Які актори народились в один день з Рейчел Стівенс?"
+        ]
+    },
+    {
+        "uid": "64",
+        "question_text": "What is the profession of Frank Herbert?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q7934>  <http://www.wikidata.org/prop/direct/P106>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welchen Beruf hat Frank Herbert?"
+        ],
+        "question_text_ru": [
+            "Кем является Франк Герберт?",
+            "Какая профессия у Фрэнка Герберта?",
+            "Професия Френка Герберта?",
+            "Какая профессия у Франка Герберта?"
+        ],
+        "question_text_ua": [
+            "Професія Френка Герберта?"
+        ]
+    },
+    {
+        "uid": "6",
+        "question_text": "Are Taiko some kind of Japanese musical instrument?",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Sind Taiko eine Art von japanischen Musikinstrument?"
+        ],
+        "question_text_ru": [
+            "Является ли Тайко японским музыкальным инструментом?",
+            "Является лиТайко разновидностью японского музыкального инструмента?",
+            "Таико это некий японский музыкальный инструмент?"
+        ],
+        "question_text_ua": [
+            "Чи є Тайко японським музичним інструментом?"
+        ]
+    },
+    {
+        "uid": "56",
+        "question_text": "How many seats does the home stadium of FC Porto have?",
+        "query_wikidata": "SELECT DISTINCT ?num WHERE { <http://www.wikidata.org/entity/Q128446> <http://www.wikidata.org/prop/direct/P115>/<http://www.wikidata.org/prop/direct/P1083> ?num }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Sitzplätze hat das Heimstadion vom FC Porto?"
+        ],
+        "question_text_ru": [
+            "Какая вместимость стадиона футбольного клуба Порто?",
+            "Сколько мест на домашнем стадионе FC Porto?",
+            "Сколько мест на домашенм стадионе футбольного клуба Порту?",
+            "Какая вместимость у домашнего стадиона ФК Порту?"
+        ],
+        "question_text_ua": [
+            "Скільки місць на домашньому стадіоні футбольного клубу Порту?"
+        ]
+    },
+    {
+        "uid": "49",
+        "question_text": "Which frequent flyer program has the most airlines?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> PREFIX p: <http://www.wikidata.org/prop/> PREFIX ps: <http://www.wikidata.org/prop/statement/> SELECT ?frequentflyer WHERE { ?airlines wdt:P31 wd:Q46970 . ?airlines p:P4446/ps:P4446 ?frequentflyer . }  GROUP BY ?frequentflyer ORDER BY DESC(COUNT(?airlines)) LIMIT 1",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welches Vielfliegerprogramm hat die meisten Fluglinien?"
+        ],
+        "question_text_ru": [
+            "Какая бонусная программа есть у большинства авиакомпаний?",
+            "Какая бонусная программа для часто летающих пассажировк включает большее число авиакомпаний?",
+            "В какой программе для часто летающих пасажиров больше всего авиакомпаний?",
+            "В какой распространённой программе для авиапассажиров больше всего авиалиний?"
+        ],
+        "question_text_ua": [
+            "У якій програмі для часто літаючих пасажирів найбільше компаній?"
+        ]
+    },
+    {
+        "uid": "44",
+        "question_text": "Which European countries have a constitutional monarchy?",
+        "query_wikidata": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q458>  <http://www.wikidata.org/prop/direct/P150>  ?o1 . ?o1 <http://www.wikidata.org/prop/direct/P122>   <http://www.wikidata.org/entity/Q41614> }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche europäischen Länder haben eine parlamentarische Monarchie?"
+        ],
+        "question_text_ru": [
+            "В каких европейских страна установлена конституционная монархия?",
+            "Какие европейские страны являются конституционными монархиями?",
+            "В какой европейской стране конституционная монархия?",
+            "Какие европейские страны имеют конституционную монархию?"
+        ],
+        "question_text_ua": [
+            "Яка європейска карїна має конституційну монархію?"
+        ]
+    },
+    {
+        "uid": "210",
+        "question_text": "Which monarchs of the United Kingdom were married to a German?",
+        "query_wikidata": "PREFIX p: <http://www.wikidata.org/prop/> PREFIX ps: <https://w3id.org/payswarm#> PREFIX pq: <http://www.wikidata.org/prop/qualifier/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> PREFIX bd: <http://www.bigdata.com/rdf#> PREFIX wikibase: <http://wikiba.se/ontology#> SELECT DISTINCT ?uri WHERE { { ?uri ?allowed wd:Q9134365 . # british monarch VALUES ?allowed { wdt:P39 wdt:P97 } # postion held, noble title } UNION { ?uri wdt:P39 ?position . VALUES ?position { wd:Q116 wd:Q12097  } ?uri p:P39/pq:P642 ?kingdom . } VALUES ?kingdom { wd:Q161885 wd:Q174193 } . ?uri wdt:P26 ?spouse . ?spouse wdt:P19/wdt:P17 wd:Q183 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Monarchen aus dem Vereinigten Königreich waren mit einem Deutschen verheiratet?"
+        ],
+        "question_text_ru": [
+            "Кто их монархов Соединенного королевства имели жен германского происхождения?",
+            "Кто из монархов Соединенного Королевства был женат на немке?"
+        ],
+        "question_text_ua": [
+            "Хто з монархів Сполученого Королівства мав шлюб з німецькими?"
+        ]
+    },
+    {
+        "uid": "199",
+        "question_text": "Give me all Argentine films.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?uri { ?uri wdt:P31 wd:Q11424 . ?uri wdt:P495 wd:Q414 }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle argentinischen Filme auf."
+        ],
+        "question_text_ru": [
+            "Перечислите все аргентинские фильмы.",
+            "Перечислите аргентинские фильмы"
+        ],
+        "question_text_ua": [
+            "Перелічіть усі аргентинські фільми."
+        ]
+    },
+    {
+        "uid": "203",
+        "question_text": "How did Michael Jackson die?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q2831> <http://www.wikidata.org/prop/direct/P509> ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie ist Michael Jackson gestorben?"
+        ],
+        "question_text_ru": [
+            "Как умер Майкл Джексон?"
+        ],
+        "question_text_ua": [
+            "Як помер Майкл Джексон?"
+        ]
+    },
+    {
+        "uid": "197",
+        "question_text": "Which U.S. state has been admitted latest?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { ?uri wdt:P31 wd:Q35657 . ?uri wdt:P571 ?date } ORDER BY DESC(?date) LIMIT 1",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welcher US-Bundesstaat wurde als letzter anerkannt?"
+        ],
+        "question_text_ru": [
+            "Какое штат США был включен последним?",
+            "Какой из штатов США был образован позже всех?"
+        ],
+        "question_text_ua": [
+            "Який штат увійшов до складу США останнім?"
+        ]
+    },
+    {
+        "uid": "188",
+        "question_text": "Give me the homepage of Forbes.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { wd:Q25161472 wdt:P856 ?uri } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Gib mir die Internetpräsenz von Forbes?"
+        ],
+        "question_text_ru": [
+            "Дайте мне домашнюю страницу Forbes.",
+            "Адрес домашней страницы издания Форбс?"
+        ],
+        "question_text_ua": [
+            "Покажіть мені домашню сторінку \"Форбс\"."
+        ]
+    },
+    {
+        "uid": "187",
+        "question_text": "Who is the husband of Amanda Palmer?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { ?uri wdt:P26 wd:Q240377 } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie heißt der Ehemann von Amanda Palmer?"
+        ],
+        "question_text_ru": [
+            "Кто является мужем Аманды Палмер?"
+        ],
+        "question_text_ua": [
+            "Хто чоловік Аманди Палмер?"
+        ]
+    },
+    {
+        "uid": "176",
+        "question_text": "Who painted The Storm on the Sea of Galilee?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { wd:Q2246489 wdt:P170 ?uri } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer hat den Sturm im Meer von Galiläa gemalt?"
+        ],
+        "question_text_ru": [
+            "Кто написал картину \"Христос во время шторма на море Галилейском\"?",
+            "Кто является художником картины \"Буря на Галилейском море\"?"
+        ],
+        "question_text_ua": [
+            "Хто намалював картину \"Христос під час шторму на морі Галілейському\"?"
+        ]
+    },
+    {
+        "uid": "173",
+        "question_text": "When did Finland join the EU?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX pq: <http://www.wikidata.org/prop/qualifier/> PREFIX p: <http://www.wikidata.org/prop/> PREFIX ps: <http://www.wikidata.org/prop/statement/> SELECT ?date WHERE { wd:Q33 p:P463 ?membership . ?membership pq:P580 ?date . ?membership ps:P463 wd:Q458 . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann ist Finnland der EU beigetreten?"
+        ],
+        "question_text_ru": [
+            "Когда Финляндия присоединилась к ЕС?",
+            "Когда Финляндия присоединилась к Евросоюзу?"
+        ],
+        "question_text_ua": [
+            "Коли Фінляндія приєдналася до ЄС?"
+        ]
+    },
+    {
+        "uid": "168",
+        "question_text": "Which actors play in Big Bang Theory?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q8539> <http://www.wikidata.org/prop/direct/P161> ?uri}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Schauspieler spielen in Big Bang Theory mit?",
+            "Welche Schauspieler spielen in der Urknalltheorie?"
+        ],
+        "question_text_ua": [
+            "Які актори грають у \"Теорії великого вибуху\"?"
+        ],
+        "question_text_ru": [
+            "Какие актеры играли в Теории Большого Взрыва?",
+            "Какие актеры играют в Теории большого взрыва?"
+        ],
+        "question_text_arm": [
+            "Ո՞ր դերասաններն են խաղում Մեծ պայթյունի տեսություն ֆիլմում:"
+        ],
+        "question_text_fr": [
+            "Quels acteurs jouent dans la Théorie du Big Bang?"
+        ]
+    },
+    {
+        "uid": "166",
+        "question_text": "Which computer scientist won an oscar?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { ?uri <http://www.wikidata.org/prop/direct/P106> <http://www.wikidata.org/entity/Q82594> . ?uri <http://www.wikidata.org/prop/direct/P166> ?award . ?award <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q19020> . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welcher Informatiker hat den Oscar gewonnen?",
+            "Wer von den Experten auf dem Gebiet der Informatik hat den Oscar gewonnen?"
+        ],
+        "question_text_ua": [
+            "Який інформатик виграв Оскар?"
+        ],
+        "question_text_ru": [
+            "Какой ученый в области информационных технологий выиграл оскар?",
+            "Кто из специалистов в области компьютерных наук выиграл Оскар?"
+        ],
+        "question_text_arm": [
+            "Համակարգչային ո՞ր գիտնականն է շահել օսկար:"
+        ],
+        "question_text_fr": [
+            "Lequel des spécialistes en informatique a remporté un Oscar?"
+        ]
+    },
+    {
+        "uid": "160",
+        "question_text": "Who wrote Harry Potter?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q8337> <http://www.wikidata.org/prop/direct/P50> ?uri}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer hat Harry Potter geschrieben?"
+        ],
+        "question_text_ua": [
+            "Хто написав \"Гаррі Поттера\"?"
+        ],
+        "question_text_ru": [
+            "Кто написал Гарри Поттера?"
+        ],
+        "question_text_arm": [
+            "Ո՞վ է գրել Հարի Փոթերին:"
+        ],
+        "question_text_fr": [
+            "Qui a écrit Harry Potter?"
+        ]
+    },
+    {
+        "uid": "158",
+        "question_text": "Give me all writers that won the Nobel Prize in literature.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { ?uri wdt:P106 wd:Q36180 . ?uri wdt:P166 wd:Q37922 . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle Schriftsteller auf, die den Nobelpreis gewonnen haben.",
+            "Geben Sie mir alle Schriftsteller, die den Literaturnobelpreis erhalten haben"
+        ],
+        "question_text_ua": [
+            "Перерахуйте усіх письменників, які виграли Нобелевську премію з літератури"
+        ],
+        "question_text_ru": [
+            "Перечислите всех писателей, получивших Нобелевскую премию по литературе.",
+            "Выдай мне всех писателей, которые получили Нобелевскую премию по литературе."
+        ],
+        "question_text_arm": [
+            "Տվեք ինձ բոլոր գրողներին, ովքեր գրականության ոլորտում ստացել են Նոբելյան մրցանակ:"
+        ],
+        "question_text_fr": [
+            "Donne-moi tous les écrivains qui ont reçu le prix Nobel de littérature."
+        ]
+    },
+    {
+        "uid": "157",
+        "question_text": "Give me English actors starring in Lovesick.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?uri WHERE { wd:Q12125895 wdt:P161 ?uri. ?uri wdt:P19 ?birthplace . ?birthplace wdt:P17 wd:Q145 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste englische Schauspieler auf, die in Lovesick mitspielen.",
+            "Geben Sie mir englische Schauspieler spielen \" Erinnern Sie sich an alle Verbindungen»"
+        ],
+        "question_text_ua": [
+            "Перерахуйте усіх акторів, які грали у \"Lovesick\""
+        ],
+        "question_text_ru": [
+            "Перечислите всех английских актеров, снимавшихся в «Тоске от любви».",
+            "Дайте мне английских актеров, играющих в «Вспомнить все связи»"
+        ],
+        "question_text_arm": [
+            "Տվեք ինձ անգլիացի դերասաններ, ովքեր խաղում են Լովսիկում:"
+        ],
+        "question_text_fr": [
+            "Donnez-moi des acteurs anglais jouant dans \" Remember All Links»"
+        ]
+    },
+    {
+        "uid": "150",
+        "question_text": "In which city was the president of Montenegro born?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q236> <http://www.wikidata.org/prop/direct/P35>/<http://www.wikidata.org/prop/direct/P19> ?uri . ?uri <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q515> . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "In welcher Stadt ist der Präsident von Montenegro geboren?",
+            "In welcher Stadt wurde der Präsident von Montenegro geboren?"
+        ],
+        "question_text_ua": [
+            "У якому місті народився президент Чорногорії?"
+        ],
+        "question_text_ru": [
+            "В каком городе родился президент Монтенегро?",
+            "В каком городе родился президент Черногории?"
+        ],
+        "question_text_arm": [
+            "Ո՞ր քաղաքում է ծնվել Չեռնոգորիայի նախագահը:"
+        ],
+        "question_text_fr": [
+            "Dans quelle ville est né le président du Monténégro?"
+        ]
+    },
+    {
+        "uid": "149",
+        "question_text": "Which U.S. state has the highest population density?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?uri { ?uri wdt:P31 wd:Q35657 . ?uri wdt:P1082 ?population . ?uri wdt:P2046 ?area . BIND((?population/?area) AS ?density ) } ORDER BY DESC(?density) LIMIT 1",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welcher US-Bundesstaat hat die höchste Bevölkerungsdichte?"
+        ],
+        "question_text_ua": [
+            "Який штат Америки має найбільшу густоту населення?"
+        ],
+        "question_text_ru": [
+            "Какой штат США имеет самую высокую плотность населения?",
+            "Какой штат США имеет самую высокая плотность населения?"
+        ],
+        "question_text_arm": [
+            "ԱՄՆ ո՞ր նահանգն ունի բնակչության ամենամեծ խտությունը:"
+        ],
+        "question_text_fr": [
+            "Quel état américain a la densité de population la plus élevée?"
+        ]
+    },
+    {
+        "uid": "25",
+        "question_text": "What is the longest river in China?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { ?uri <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q4022> . ?uri <http://www.wikidata.org/prop/direct/P17> <http://www.wikidata.org/entity/Q148> . ?uri <http://www.wikidata.org/prop/direct/P2043> ?length } ORDER BY DESC(?length) LIMIT 1",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie heißt der längste Fluss Chinas?",
+            "Welcher Fluss ist der längste in China?"
+        ],
+        "question_text_ua": [
+            "Яка найдовша річка Китаю?"
+        ],
+        "question_text_ru": [
+            "Какая самая длинная река Китая?",
+            "Какая река самая длинная в Китае?"
+        ],
+        "question_text_arm": [
+            "Ո՞րն է Չինաստանի ամենաերկար գետը:"
+        ],
+        "question_text_fr": [
+            "Quelle est la rivière la plus longue de Chine?"
+        ]
+    },
+    {
+        "uid": "143",
+        "question_text": "What is the area code of Berlin?",
+        "query_wikidata": "SELECT DISTINCT ?string WHERE { <http://www.wikidata.org/entity/Q64> <http://www.wikidata.org/prop/direct/P473> ?string . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie ist die Vorwahl von Berlin?",
+            "Welche Vorwahl hat Berlin?"
+        ],
+        "question_text_ua": [
+            "Який телефонний код Берліну?"
+        ],
+        "question_text_ru": [
+            "Какой код города у Берлина?"
+        ],
+        "question_text_arm": [
+            "Ո՞րն է Բեռլինի տարածքային ծածկագիրը:"
+        ],
+        "question_text_fr": [
+            "Quel est l'indicatif régional de Berlin?"
+        ]
+    },
+    {
+        "uid": "140",
+        "question_text": "How many scientists graduated from an Ivy League university?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT (COUNT(DISTINCT ?uri) AS ?c) WHERE { ?uri wdt:P106 wd:Q901 . ?uri wdt:P69 ?university. wd:Q49113  wdt:P527 ?university . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Wissenschaftler haben an der Ivy League Universität graduiert?",
+            "Wie viele Wissenschaftler haben ihren Abschluss an der Ivy League University gemacht?"
+        ],
+        "question_text_ru": [
+            "Сколько ученых выпустилось из университетов Лиги Плюша?",
+            "Сколько ученых закончили университет Лиги плюща"
+        ],
+        "question_text_lt": [
+            "Kiek mokslininkų baigė gebenių lygos universitetą?"
+        ]
+    },
+    {
+        "uid": "139",
+        "question_text": "Which professional surfers were born in Australia?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT (COUNT(DISTINCT ?uri) AS ?c) WHERE { ?uri wdt:P19 ?birtplace . ?birtplace wdt:P17 wd:Q408 . ?uri wdt:P106 wd:Q13561328 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche professionellen Surfer sind in Australien geboren?",
+            "Welche Profisurfer wurden in Australien geboren?"
+        ],
+        "question_text_ru": [
+            "Какие профессиональные серферы родились в Австралии?",
+            "Какие профессиональные серферы родились в Австралии"
+        ],
+        "question_text_lt": [
+            "Kurie profesionalūs banglentininkai gimė Australijoje?"
+        ]
+    },
+    {
+        "uid": "137",
+        "question_text": "Give me all Dutch parties.",
+        "query_wikidata": " SELECT ?s1 WHERE { ?s1  <http://www.wikidata.org/prop/direct/P17> <http://www.wikidata.org/entity/Q55> . ?s1  <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q7278> .  } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle niederländischen Parteien auf.",
+            "Gib mir alle niederländischen Parteien."
+        ],
+        "question_text_ru": [
+            "Перечислите все партии Дании.",
+            "Перечислите все голландские партии"
+        ],
+        "question_text_lt": [
+            "Pasakyk man visas Nyderlandų politines partijas?"
+        ]
+    },
+    {
+        "uid": "136",
+        "question_text": "How many moons does Mars have?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q111> <http://www.wikidata.org/prop/direct/P398> ?uri  . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Monde hat der Mars?"
+        ],
+        "question_text_ru": [
+            "Сколько спутников у Марса?",
+            "Сколько спутников у Марса"
+        ],
+        "question_text_lt": [
+            "Kiek mėnulių turi Marsas?"
+        ]
+    },
+    {
+        "uid": "134",
+        "question_text": "What is Batman's real name?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q2695156> <http://www.wikidata.org/prop/direct/P460> ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie ist der wahre Name von Batman?",
+            "Wie heißt Batman wirklich?"
+        ],
+        "question_text_ru": [
+            "Какое настоящее имя Бэтмена?",
+            "Какое настоящее имя у Бэтмена"
+        ],
+        "question_text_lt": [
+            "Koks tikras Betmeno vardas?"
+        ]
+    },
+    {
+        "uid": "132",
+        "question_text": "What is Elon Musk famous for?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q317521> <http://www.wikidata.org/prop/direct/P61> ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wofür ist Elon Musk berühmt?"
+        ],
+        "question_text_ru": [
+            "За что известнен Илон Маск?",
+            "Чем знаменит Илон Маск"
+        ],
+        "question_text_lt": [
+            "Kuo žinomas Elonas Maskas?"
+        ]
+    },
+    {
+        "uid": "128",
+        "question_text": "Who is the author of WikiLeaks?",
+        "query_wikidata": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q359>  <http://www.wikidata.org/prop/direct/P50>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer ist der Autor von WikiLeaks?"
+        ],
+        "question_text_ru": [
+            "Кто создалтель WikiLeaks?",
+            "Кто создал WikiLeaks"
+        ],
+        "question_text_lt": [
+            "Kas „WikiLeakso“ autorius?"
+        ]
+    },
+    {
+        "uid": "126",
+        "question_text": "Sean Parnell was the governor of which U.S. state?",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Von welchem Bundesstaat war Sean Parnell Gouverneur?",
+            "Sean Parnell war der Gouverneur in welchem US Bundesstaat?"
+        ],
+        "question_text_ru": [
+            "Губернатором какого штата США был Шон Парнелл?",
+            "Губернатором какого штата США был Шон Парнелл"
+        ],
+        "question_text_lt": [
+            "Kurios JAV valstijos gubernatorius buvo Šonas Parnellis?"
+        ]
+    },
+    {
+        "uid": "125",
+        "question_text": "How many years was the Ford Model T manufactured?",
+        "query_wikidata": "NO ANSWER",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Jahre wurde der Ford Modell T hergestellt?",
+            "Wie viele Jahre wurde das Modell T von Ford hergestellt?"
+        ],
+        "question_text_ru": [
+            "Сколько лет производился автомобиль Ford Model T?",
+            "Сколько лет выпускался Ford Model T"
+        ],
+        "question_text_lt": [
+            "Kiek metų atgal buvo gaminamas „Ford Model T“?"
+        ]
+    },
+    {
+        "uid": "124",
+        "question_text": "When was Carlo Giuliani shot?",
+        "query_wikidata": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q164791>  <http://www.wikidata.org/prop/direct/P570>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann wurde Carlo Giuliani erschossen?",
+            "Wann wurd Carlo Giuliani erschossen?"
+        ],
+        "question_text_ru": [
+            "Когда был застрелен Карло Джулиани?",
+            "Когда был застрелен Карло Джулиани"
+        ],
+        "question_text_lt": [
+            "Kada buvo nušautas Karlas Džuliani?"
+        ]
+    },
+    {
+        "uid": "123",
+        "question_text": "Give me all animals that are extinct.",
+        "query_wikidata": "select * where { ?s <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q98961713> }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle ausgestorbenen Tiere auf."
+        ],
+        "question_text_ru": [
+            "Перечислите всех вымирающих животныъ",
+            "Перечислите все исчезнувшие виды животных.",
+            "Назовите всех вымерших животных.",
+            "Выдай мне всех вымерших животных."
+        ]
+    },
+    {
+        "uid": "122",
+        "question_text": "Who was the wife of President Lincoln?",
+        "query_wikidata": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q91>  <http://www.wikidata.org/prop/direct/P26>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer war die Ehefrau von Präsident Lincoln?"
+        ],
+        "question_text_ru": [
+            "Кто была жена президента Линкольна?",
+            "Кем была жена президента Линкольна?",
+            "Кто был женой президента Линкольна?",
+            "Кто была женой президента Линкольна?"
+        ]
+    },
+    {
+        "uid": "111",
+        "question_text": "How many awards has Bertrand Russell?",
+        "query_wikidata": " SELECT  (COUNT(DISTINCT ?o1) as ?count)  WHERE { <http://www.wikidata.org/entity/Q33760>  <http://www.wikidata.org/prop/direct/P166>  ?o1 . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Preise hat Bertrand Russell gewonnen?"
+        ],
+        "question_text_ru": [
+            "Сколько наград у Бертранда Рассела?",
+            "Сколько наград у Бертрана Рассела?",
+            "Сколько наград имеет Бертранд Рассел?"
+        ]
+    },
+    {
+        "uid": "117",
+        "question_text": "Is Pamela Anderson a vegan?",
+        "query_wikidata": "ASK where { <http://www.wikidata.org/entity/Q83325> <http://www.wikidata.org/prop/direct/P1576> <http://www.wikidata.org/entity/Q83364>}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Ist Pamela Anderson Veganerin?"
+        ],
+        "question_text_ru": [
+            "Является ли Памела Андерсон веганом?",
+            "Памела Андерсон - вегетарианка?",
+            "Памела Андерсон веган?"
+        ]
+    },
+    {
+        "uid": "59",
+        "question_text": "Which space probes were sent into orbit around the sun?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.wikidata.org/prop/direct/P522> <http://www.wikidata.org/entity/Q737809> . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Weltraumsonden wurden in den Orbit der Sonne geschickt?"
+        ],
+        "question_text_ru": [
+            "Какие космическиз зонды были выведены на орбиту вокруг солнца?",
+            "Какие космические аппараты были отправлены на орбиту вокруг Солнца?",
+            "Какие зонды были отправлены на солнечную орбиту?"
+        ]
+    },
+    {
+        "uid": "113",
+        "question_text": "Which German cities have more than 250000 inhabitants?",
+        "query_wikidata": " SELECT ?s1 WHERE { ?s1  <http://www.wikidata.org/prop/direct/P17>  <http://www.wikidata.org/entity/Q183> .  ?s1 <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q515> .  ?s1  <http://www.wikidata.org/prop/direct/P1082>  ?o1 . FILTER ( ?o1 > \"250000\"^^<http://www.w3.org/2001/XMLSchema#integer>)}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche deutschen Städte haben mehr als 250000 Einwohner?"
+        ],
+        "question_text_ru": [
+            "В каких городах Германии более 250 000 жителей?",
+            "В каких городах Германии население более 250000 человек?",
+            "Какие немецкие города имеют население более 25000 жителей?",
+            "В каких немецких городах живёт больше 250000 жителей?"
+        ]
+    },
+    {
+        "uid": "104",
+        "question_text": "Who is the daughter of Robert Kennedy married to?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q25310> <http://www.wikidata.org/prop/direct/P40> ?daughter . ?daughter  <http://www.wikidata.org/prop/direct/P21> <http://www.wikidata.org/entity/Q6581072> . ?daughter  <http://www.wikidata.org/prop/direct/P26> ?uri .}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Mit wem ist die Tochter von Robert Kennedy verheiratet?"
+        ],
+        "question_text_ru": [
+            "За кого вышла замуж дочка Роберта Кеннеди?",
+            "За кем замужем дочь Роберта Кеннеди?",
+            "Кто муж дочери Роберта Кеннеди?",
+            "За кого вышла замуж дочь Роберта Кеннеди?"
+        ]
+    },
+    {
+        "uid": "10",
+        "question_text": "How many students does the Free University of Amsterdam have?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q214341>  <http://www.wikidata.org/prop/direct/P2196>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Studenten hat die freie Universität Amsterdam?"
+        ],
+        "question_text_ru": [
+            "Сколько студентов учится в Free University of Amsterdam?",
+            "Сколько студентов в Амстердамском свободном университете?",
+            "Сколько студентов учится в Свободном Университете Амстердама?",
+            "Сколько студентов в Свободном Университете Амстердама?"
+        ]
+    },
+    {
+        "uid": "1",
+        "question_text": "What is the revenue of IBM?",
+        "query_wikidata": " SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q37156>  <http://www.wikidata.org/prop/direct/P2139>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welchen Umsatz macht IBM?"
+        ],
+        "question_text_ru": [
+            "Какая прибыль у IBM?",
+            "Какой доход у IBM?",
+            "Какая выручка у IBM?"
+        ]
+    },
+    {
+        "uid": "178",
+        "question_text": "How many James Bond movies do exist?",
+        "query_wikidata": " SELECT (COUNT(?s1) as ?c) WHERE { ?s1  <http://www.wikidata.org/prop/direct/P31>  <http://www.wikidata.org/entity/Q11424> . ?s1  ?p  <http://www.wikidata.org/entity/Q2009573> .  FILTER (?p = <http://www.wikidata.org/prop/direct/P144> || ?p = <http://www.wikidata.org/prop/direct/P674>) }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele James Bond Filme gibt es?"
+        ],
+        "question_text_ru": [
+            "Сколько снято фильмов о Джеймсе Бонде?",
+            "Сколько всего фильмов о Джеймсе Бонде?",
+            "Сколько есть фильмов про Джеймса Бонда?",
+            "Сколько всего существует фильмов о Джеймсе Бонде?"
+        ]
+    },
+    {
+        "uid": "209",
+        "question_text": "Give me all taikonauts.",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT DISTINCT ?uri WHERE { ?uri wdt:P106 wd:Q11631 . ?uri wdt:P27 wd:Q148 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle Taikonauten auf."
+        ],
+        "question_text_ru": [
+            "Перечислите всех тайконавтов.",
+            "Назови мне всех китайских космонавтов.",
+            "Перечислите всех китайских космонавтов"
+        ],
+        "question_text_ua": [
+            "Перелічіть усіх тайконавтів."
+        ]
+    },
+    {
+        "uid": "105",
+        "question_text": "Which countries have more than ten volcanoes?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  { ?volcano <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q8072> . } UNION { ?volcano <http://www.wikidata.org/prop/direct/P31> ?type . ?type <http://www.wikidata.org/prop/direct/P279>* <http://www.wikidata.org/entity/Q8072> . } ?volcano <http://www.wikidata.org/prop/direct/P17> ?uri . } GROUP BY ?uri HAVING(COUNT(?volcano)>10)",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Länder haben mehr als 10 Vulkane?"
+        ],
+        "question_text_ru": [
+            "В каких странах больше десяти вулканов?",
+            "Какие страны имеют более десяти вулканов?",
+            "В каких странах есть более 10 вулканов?"
+        ],
+        "question_text_ua": [
+            "Які країни мають понад 10 вулканів?"
+        ]
+    },
+    {
+        "uid": "52",
+        "question_text": "Give me all movies with Tom Cruise.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?uri WHERE { ?uri wdt:P161 wd:Q37079. }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle Filme mit Tom Cruise auf?"
+        ],
+        "question_text_ru": [
+            "Перечислите все фильмы с Томом Крузом.",
+            "Дай мне все фильмы с участием Тома Круза.",
+            "Перечислите все фильмы с Томом Крузом"
+        ],
+        "question_text_ua": [
+            "Перелічіть все фільми з Томом Крузом."
+        ]
+    },
+    {
+        "uid": "102",
+        "question_text": "When did Dracula's creator die?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?date WHERE { wd:Q3266236 wdt:P170 ?author . ?author wdt:P570 ?date }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann ist der Erfinder von Dracula gestorben?"
+        ],
+        "question_text_ru": [
+            "Когда умер создатель Дракулы?",
+            "Когда умер автор Дракулы?"
+        ],
+        "question_text_ua": [
+            "Коли помер творець Дракули?"
+        ]
+    },
+    {
+        "uid": "21",
+        "question_text": "Who created English Wikipedia?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { wd:Q52 wdt:P170 ?uri . ?uri wdt:P31 wd:Q5 . # not sure if required }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer hat das englische Wikipedia entwickelt?"
+        ],
+        "question_text_ru": [
+            "Кто создал английскую Википедию?",
+            "Кто создал англоязычную википедию?",
+            "Кто является создателем английской Википедии?"
+        ],
+        "question_text_ua": [
+            "Хто створив англійську Вікіпедію?"
+        ]
+    },
+    {
+        "uid": "34",
+        "question_text": "Give me all female German chancellors.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri WHERE { ?uri wdt:P21 wd:Q6581072 . ?uri wdt:P39 wd:Q4970706 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle deutschen weiblichen Bundeskanzler auf."
+        ],
+        "question_text_ru": [
+            "Перечислите все женщин-канцлеров Германии.",
+            "Назови мне всех женщин канцлеров Германии?",
+            "Перечислите всех женщин канцлеров Германии"
+        ],
+        "question_text_ua": [
+            "Перелічіть усіх німецьких канцлерів-жінок."
+        ]
+    },
+    {
+        "uid": "154",
+        "question_text": "Which books were written by Danielle Steel?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?uri WHERE { ?uri wdt:P50 wd:Q72653 . ?uri wdt:P136 ?genre . ?genre wdt:P279* wd:Q571 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Bücher hat Danielle Steel geschrieben?"
+        ],
+        "question_text_ru": [
+            "Какие книги написала Даниэль Стил?",
+            "Какие книги были написаны Даниэлой Стил?"
+        ],
+        "question_text_ua": [
+            "Які книги написала Даніела Стіл?"
+        ]
+    },
+    {
+        "uid": "198",
+        "question_text": "Who was influenced by Socrates?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT * WHERE { ?uri wdt:P31 wd:Q5 . ?uri wdt:P737 wd:Q913 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer wurde von Socrates beeinflusst?"
+        ],
+        "question_text_ru": [
+            "На кого Сократ оказал влияние?",
+            "На кого оказал влияние Сократ?",
+            "Кто вдохновлялся Сократом?"
+        ],
+        "question_text_ua": [
+            "На кого вплинув Сократ?"
+        ]
+    },
+    {
+        "uid": "162",
+        "question_text": "How deep is Lake Chiemsee?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?n WHERE { wd:Q4138  wdt:P4511 ?n }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie tief ist der Chiemsee"
+        ],
+        "question_text_ru": [
+            "Насколько глубоко озеро Кимзе?",
+            "Какая глубина озера Кимзе?",
+            "Какая глубина озера Хим?"
+        ],
+        "question_text_ua": [
+            "Яка глибина озера Хім?"
+        ]
+    },
+    {
+        "uid": "96",
+        "question_text": "Which professional surfers were born on the Philippines?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT * WHERE { ?uri wdt:P19 ?birtplace . ?birtplace wdt:P17 wd:Q928 . ?uri wdt:P106  wd:Q13561328 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche professionellen Surfer sind auf den Philippinen geboren?",
+            "Quels surfeurs professionnels sont nés aux Philippines?"
+        ],
+        "question_text_ua": [
+            "Які професійні серфери народилися на Філіппінах?"
+        ],
+        "question_text_ru": [
+            "Какие профессиональные серферы родились на Филлипинах?",
+            "Какие профессиональные серферы родилсь на Филиппинах?",
+            "Which professional surfers were born on the Philippines?"
+        ],
+        "question_text_arm": [
+            "Какие профессиональные серферы родились на Филиппинах?"
+        ],
+        "question_text_fr": [
+            "Ո՞ր պրոֆեսիոնալ սերֆերներն են ծնվել Ֆիլիպիններում:"
+        ]
+    },
+    {
+        "uid": "40",
+        "question_text": "Who were the parents of Queen Victoria?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?uri WHERE { wd:Q9439 ?childof ?uri . VALUES ?childof { wdt:P22 wdt:P25 }}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer waren die Eltern von Queen Victoria?",
+            "Qui étaient les parents de la reine Victoria?"
+        ],
+        "question_text_ua": [
+            "Хто були батьками Королеви Вікторії?"
+        ],
+        "question_text_ru": [
+            "Родители Королевы Виктории?",
+            "Кто является родителями королевы Виктории?",
+            "Who were the parents of Queen Victoria?"
+        ],
+        "question_text_arm": [
+            "Кто были родителями королевы Виктории?"
+        ],
+        "question_text_fr": [
+            "Ովքե՞ր էին թագուհի Վիկտորիայի ծնողները:"
+        ]
+    },
+    {
+        "uid": "79",
+        "question_text": "Are there any castles in the United States?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> ASK WHERE { { ?uri wdt:P31 wd:Q23413. } UNION { ?uri wdt:P31 ?castlesubtype . ?castlesubtype wdt:P279* wd:Q23413 } ?uri wdt:P17 wd:Q30 }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Gibt es irgendwelche Schlösser in den Vereinigten Staaten?",
+            "Y a-t-il des serrures aux États-Unis?"
+        ],
+        "question_text_ua": [
+            "Чи в Сполученних Штатах є якісь замки?"
+        ],
+        "question_text_ru": [
+            "Есть ли средневековые замки в Соединенных Штатах Америки?",
+            "Сколько замков в Соединенных Штатах Америки?",
+            "Are there any castles in the United States?"
+        ],
+        "question_text_arm": [
+            "Есть ли замки в Соединенных Штатах?"
+        ],
+        "question_text_fr": [
+            "ԱՄՆ-ում կա՞ն ամրոցներ:"
+        ]
+    },
+    {
+        "uid": "141",
+        "question_text": "Which languages are spoken in Estonia?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT * { wd:Q191 wdt:P2936 ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Sprachen werden in Estland gesprochen?",
+            "Quelles langues sont parlées en Estonie?"
+        ],
+        "question_text_ua": [
+            "Якими мовами розмоляють у Естонії?"
+        ],
+        "question_text_ru": [
+            "На каких языках говорят в Эстонии?",
+            "На скольки языках говорят в Эстонии?",
+            "Which languages are spoken in Estonia?"
+        ],
+        "question_text_arm": [
+            "На каких языках говорят в Эстонии?"
+        ],
+        "question_text_fr": [
+            "Ո՞ր լեզուներն են խոսում Էստոնիայում:"
+        ]
+    },
+    {
+        "uid": "80",
+        "question_text": "Give me a list of all critically endangered birds.",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.wikidata.org/prop/direct/P171>* <http://www.wikidata.org/entity/Q5113> . ?uri <http://www.wikidata.org/prop/direct/P141> <http://www.wikidata.org/entity/Q219127> . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle kritisch gefährdeten Vögel auf.",
+            "Donne-moi une liste de tous les oiseaux en voie de disparition."
+        ],
+        "question_text_ua": [
+            "Перерахуйте усіх птахів, які перебувають під загрозою винищення"
+        ],
+        "question_text_ru": [
+            "Перечислите все виды птиц на грани исчезновения?",
+            "Приведите список птиц, находящихся на грани исчезновения.",
+            "Give me a list of all critically endangered birds."
+        ],
+        "question_text_arm": [
+            "Выдай мне список всех птиц, находящихся под угрозой исчезновения."
+        ],
+        "question_text_fr": [
+            "Տվեք ինձ բոլոր վտանգված թռչունների ցուցակը:"
+        ]
+    },
+    {
+        "uid": "159",
+        "question_text": "Which countries are connected by the Rhine?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?uri ?x ?y  WHERE { wd:Q584  wdt:P17 ?uri . ?uri wdt:P31 wd:Q6256 . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Länder sind durch den Rhein verbunden?",
+            "Quels pays relie le Rhin?"
+        ],
+        "question_text_ua": [
+            "Які країни з'єднані Рейном?"
+        ],
+        "question_text_ru": [
+            "Какие страны соединяет река Рейн?",
+            "Через какие страны проходит Рейн?",
+            "Which countries are connected by the Rhine?"
+        ],
+        "question_text_arm": [
+            "Какие страны соединяет Рейн?"
+        ],
+        "question_text_fr": [
+            "Ո՞ր երկրներն է միանում Հռենոսը:"
+        ]
+    },
+    {
+        "uid": "107",
+        "question_text": "Who was the father of Queen Elizabeth II?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?uri WHERE { wd:Q9682 wdt:P22  ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer war der Vater von Queen Elizabeth II?",
+            "Qui était le père de la reine Elizabeth II?"
+        ],
+        "question_text_ua": [
+            "Хто був батьком Королеви Єлизавети ІІ?"
+        ],
+        "question_text_ru": [
+            "Кто был отцом Королевы ЕлизаветыII?",
+            "Кто был отцом Елизаветы II?",
+            "Who was the father of Queen Elizabeth II?"
+        ],
+        "question_text_arm": [
+            "Кто был отцом королевы Елизаветы II?"
+        ],
+        "question_text_fr": [
+            "Ո՞վ էր Եղիսաբեթ II թագուհու հայրը:"
+        ]
+    },
+    {
+        "uid": "163",
+        "question_text": "Give me all chemical elements.",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT DISTINCT ?uri WHERE { ?uri wdt:P31 wd:Q11344 . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle chemischen Elemente auf.",
+            "Donne - moi tous les éléments chimiques."
+        ],
+        "question_text_ua": [
+            "Перерахуйте усі хімічні елементи"
+        ],
+        "question_text_ru": [
+            "Перечислите все химические элементы?",
+            "Перечислите все химические элементы.",
+            "Give me all chemical elements."
+        ],
+        "question_text_arm": [
+            "Выдай мне все химические элементы."
+        ],
+        "question_text_fr": [
+            "Տվեք ինձ բոլիր քիմիական տարրերը:"
+        ]
+    },
+    {
+        "uid": "211",
+        "question_text": "Give me all American presidents of the last 20 years.",
+        "query_wikidata": "PREFIX ps: <http://www.wikidata.org/prop/statement/> PREFIX pq: <http://www.wikidata.org/prop/qualifier/> PREFIX wd: <http://www.wikidata.org/entity/> PREFIX p: <http://www.wikidata.org/prop/> SELECT DISTINCT ?uri WHERE { ?uri p:P39 ?position . ?position ps:P39 wd:Q11696 . ?position pq:P582 ?termEnd. FILTER((YEAR(NOW()) - YEAR(?termEnd)) <= 20) }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Liste alle amerikanischen Präsidenten der letzten 20 Jahre auf.",
+            "Donne-moi tous les présidents Américains des 20 dernières années."
+        ],
+        "question_text_ua": [
+            "Перерахуйте мені усіх американських президентів за останні 20 років"
+        ],
+        "question_text_ru": [
+            "Перечислите всех американских президентов за последние 20 лет.",
+            "Перечислите всех президентов Америки за последние 20 лет.",
+            "Give me all American presidents of the last 20 years."
+        ],
+        "question_text_arm": [
+            "Выдай мне всех Американских президентов за последние 20 лет."
+        ],
+        "question_text_fr": [
+            "Տվեք ինձ վերջին 20 տարվա Ամերիկայի բոլոր նախագահներին:"
+        ]
+    },
+    {
+        "uid": "156",
+        "question_text": "Where is Fort Knox located?",
+        "query_wikidata": "PREFIX wdt: <http://www.wikidata.org/prop/direct/> PREFIX wd: <http://www.wikidata.org/entity/> SELECT ?uri { wd:Q8962067 wdt:P131+ ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wo liegt Fort Knox?"
+        ],
+        "question_text_ru": [
+            "Где находитсявоенная база Форт-Нокс?",
+            "Где находится Форт-Нокс?",
+            "Где расположен Форт-Нокс?",
+            "Где расположен Форт Нокс?"
+        ]
+    },
+    {
+        "uid": "24",
+        "question_text": "How many emperors did China have?",
+        "query_wikidata": "SELECT (COUNT(DISTINCT ?uri) as ?count) WHERE {  ?uri <http://www.wikidata.org/prop/direct/P39> <http://www.wikidata.org/entity/Q268218>}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie viele Kaiser hatte China?"
+        ],
+        "question_text_ru": [
+            "Сколько императоров было в Китае?",
+            "Сколько в Китае было императоров?",
+            "Сколько имераторов было в Китае?",
+            "Сколько всего императоров было в Китае?"
+        ]
+    },
+    {
+        "uid": "133",
+        "question_text": "What are the names of the Teenage Mutant Ninja Turtles?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE {  ?uri <http://www.wikidata.org/prop/direct/P361> <http://www.wikidata.org/entity/Q1381762> . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie heißen die Teenage Mutant Ninja Turtles?"
+        ],
+        "question_text_ru": [
+            "Перечислите имена черепашек-ниндзя.",
+            "Как зовут Черепашек-Ниндзя?",
+            "Как звали персонажей Черепашек ниндзя?",
+            "Какие имена у черепашек-ниндзя?"
+        ]
+    },
+    {
+        "uid": "103",
+        "question_text": "Where does Piccadilly start?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q1124023> <http://www.wikidata.org/prop/direct/P559> ?uri}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wo fängt Piccadilly an?"
+        ],
+        "question_text_ru": [
+            "Где начинается улица Пикадилли?",
+            "Где начинал Пикадилли?",
+            "Где начинается Пикадилли?"
+        ]
+    },
+    {
+        "uid": "108",
+        "question_text": "When did Paraguay proclaim its independence?",
+        "query_wikidata": "SELECT ?o1 WHERE { <http://www.wikidata.org/entity/Q733>  <http://www.wikidata.org/prop/direct/P571>  ?o1 .  }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann hat Paraguay seine Unabhängigkeit erklärt?"
+        ],
+        "question_text_ru": [
+            "Когда Парагвай провозгласил независимость?",
+            "Когда было провозглашена независимость Парагвая?",
+            "Когда в Парагвае провозгласили независимость?",
+            "Когда Парагвай объявил свою независимость?"
+        ]
+    },
+    {
+        "uid": "15",
+        "question_text": "How short is the shortest active NBA player?",
+        "query_wikidata": "SELECT DISTINCT ?height WHERE { ?uri <http://www.wikidata.org/prop/direct/P106>  <http://www.wikidata.org/entity/Q3665646> . ?uri <http://www.wikidata.org/prop/direct/P54>/<http://www.wikidata.org/prop/direct/P118> <http://www.wikidata.org/entity/Q155223> .  ?uri <http://www.wikidata.org/prop/P54> ?teamMembership . FILTER NOT EXISTS { ?teamMembership <http://www.wikidata.org/prop/qualifier/P582> ?endDate } ?uri  <http://www.wikidata.org/prop/direct/P2048> ?height } ORDER BY ?height LIMIT 1",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wie klein ist der kleinste, aktive NBA-Spieler?"
+        ],
+        "question_text_ru": [
+            "Самый низкий рост действующего игрока NBA?",
+            "Каков рост самого маленького действующего игрока NBA?",
+            "Какой наименьший рост у активного игрока в NBA?",
+            "Какого роста самый короткий игрок НБА?"
+        ]
+    },
+    {
+        "uid": "82",
+        "question_text": "When was Jack Wolfskin founded?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?date WHERE { wd:Q536133 wdt:P571 ?date . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann wurde Jack Wolfskin gegründet?"
+        ],
+        "question_text_ru": [
+            "Когда была основана компания Jack Wolfskin?",
+            "Когда была создана компания Jack Wolfskin?",
+            "Когда была основана кампания Jack Wolfskin?",
+            "Когда был основан Jack Wolfskin?"
+        ]
+    },
+    {
+        "uid": "192",
+        "question_text": "Which museum exhibits The Scream by Munch?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q471379> <http://www.wikidata.org/prop/direct/P527>/<http://www.wikidata.org/prop/direct/P276> ?uri . ?uri <http://www.wikidata.org/prop/direct/P31> <http://www.wikidata.org/entity/Q207694>}",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welches Museum stellt Der Schrei von Munch aus?"
+        ],
+        "question_text_ru": [
+            "В каком музее выставлена картина Мунка «Крик»?",
+            "В каком музее выставлен \"Крик\" Мунка?",
+            "В каких музеях представлена картина \"Крик\" Мунка?"
+        ]
+    },
+    {
+        "uid": "78",
+        "question_text": "When was the De Beers company founded?",
+        "query_wikidata": "PREFIX wd: <http://www.wikidata.org/entity/> PREFIX wdt: <http://www.wikidata.org/prop/direct/> SELECT ?date WHERE { wd:Q471891 wdt:P571 ?date . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann wurde De Beers gegründet?"
+        ],
+        "question_text_ru": [
+            "Когда была основана компания De Beers?",
+            "В каком году основана компания \"Де Бирс\"?",
+            "Когда была основана компания Де Бирс?"
+        ]
+    },
+    {
+        "uid": "19",
+        "question_text": "Who became president after JFK died?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q9696> <http://www.wikidata.org/prop/P39> ?position . ?position  <http://www.wikidata.org/prop/statement/P39> <http://www.wikidata.org/entity/Q11696> . ?position <http://www.wikidata.org/prop/qualifier/P1366> ?uri . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wer wurde Präsident, nachdem JFK starb?"
+        ],
+        "question_text_ru": [
+            "Кто стал президентом после Джона Кеннеди?",
+            "Кто стал президентом после смерти Джона Франклина Кеннеди?",
+            "Кто стал президентом после смерти Джона Кеннеди?"
+        ]
+    },
+    {
+        "uid": "94",
+        "question_text": "When did princess Diana die?",
+        "query_wikidata": "SELECT DISTINCT ?date WHERE { <http://www.wikidata.org/entity/Q9685> <http://www.wikidata.org/prop/direct/P570> ?date  . }",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Wann ist Prinzessin Diana gestorben?"
+        ],
+        "question_text_ru": [
+            "Когда умерла принцесса Диана?"
+        ]
+    },
+    {
+        "uid": "119",
+        "question_text": "Which instruments does Cat Stevens play?",
+        "query_wikidata": "SELECT DISTINCT ?uri WHERE { <http://www.wikidata.org/entity/Q154216> <http://www.wikidata.org/prop/direct/P1303> ?uri . } ",
+        "query_dbpedia": null,
+        "answers": "",
+        "question_text_de": [
+            "Welche Instrumente spielt Cat Stevens?"
+        ],
+        "question_text_ru": [
+            "Какими инструментами владеет Кэт Стивенс?",
+            "На каких инструментах играет Кэт Стивенс?"
+        ]
+    }
+]
