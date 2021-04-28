@@ -1,7 +1,44 @@
+import re
+from SPARQLWrapper import SPARQLWrapper, JSON
+import json
+
+
+sparql = SPARQLWrapper("https://query.wikidata.org/bigdata/namespace/wdq/sparql")
+query = """
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX wd: <http://www.wikidata.org/entity/> 
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+        
+        SELECT ?label WHERE {{
+          {uri} rdfs:label ?label .
+          FILTER(LANG(?label) = "en") .
+        }}
+        """
+
+
+def run_query(rq_query):
+    try:
+        sparql.setQuery(rq_query)
+        sparql.setReturnFormat(JSON)
+        results = sparql.query().convert()
+
+        return results["results"]["bindings"]
+    except Exception as e:
+        s = str(e)
+        return []
+
+def get_wikidata_label(uri):
+    results = run_query(query.format(uri=uri))
+    for result in results:
+        if result["label"]["value"]:
+            return result["label"]["value"]
+    return ''
+
 def check_triple(triple, labels, variable, entity, predicate):
+    # For debug: print(entity, labels, predicate, triple, variable)
     return (
-        (entity == labels[0] and predicate == labels[1] and variable == triple[2]) or 
-        (variable == triple[0] and predicate == labels[1] and entity == labels[2])
+        (entity == labels[0] and predicate in triple[1] and variable == triple[2]) or 
+        (variable == triple[0] and predicate in triple[1] and entity == labels[2])
     )
   
 def prepare_URI(URI, add_brackets=True):
@@ -30,7 +67,10 @@ def fill_triple(triple, values):
     result = []
     for i in triple:
         if i.startswith('?'):
-            result.append(get_wikidata_label(values[i[1:]]))
+            if len(values) > 0:
+                result.append(get_wikidata_label(list(values[0].values())[0]['value']))
+            else:
+                result.append('')
         else:
             result.append(get_wikidata_label(i))
     return result

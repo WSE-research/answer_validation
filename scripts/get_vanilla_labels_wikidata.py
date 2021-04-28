@@ -28,7 +28,8 @@ query = """
         }}
         """
 
-qald_test_responses = json_load("../processed_data/QALD/qanswer_train_responses_extended.json")
+ids = [q['question_id'] for q in json_load("../processed_data/VANILLA/vanilla_test_intersected.json")] # intersected with AlGa
+vanilla_test_responses = json_load("../processed_data/VANILLA/qanswer_test_responses_extended-fix.json")
 
 def run_query(rq_query):
     try:
@@ -41,14 +42,12 @@ def run_query(rq_query):
         return []
     
     
-test_labels = json_load("../processed_data/QALD/qanswer_train_responses_labels.json")
-ids = [q['uid'] for q in test_labels]
+test_labels = list()
 cnt = 0
-for question in qald_test_responses:
-    if question['uid'] not in ids:
-        print('===============', question['uid'], '===============')
-        responses = list()
-
+for question in vanilla_test_responses:
+    print('===============', question['question_id'], '===============')
+    responses = list()
+    if question['question_id'] in ids:
         for response in question['response']:
             labels = list()
             prefix_ents = re.findall(r"(?<!\S)wd\S*:\S+", response['query'])
@@ -78,15 +77,15 @@ for question in qald_test_responses:
             responses.append(labels)
 
         test_labels.append({
-            'uid': question['uid'],
+            'question_id': question['question_id'],
             'responses': responses
         })
 
         if cnt%5 == 0:
             print("SAVED", cnt)
-            json_save("../processed_data/QALD/qanswer_train_responses_labels.json", test_labels)
+            json_save("../processed_data/VANILLA/qanswer_test_responses_labels.json", test_labels)
 
         cnt += 1
     
 print("SAVED", cnt)
-json_save("../processed_data/QALD/qanswer_train_responses_labels.json", test_labels)
+json_save("../processed_data/VANILLA/qanswer_test_responses_labels.json", test_labels)
