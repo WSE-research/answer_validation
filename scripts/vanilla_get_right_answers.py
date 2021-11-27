@@ -28,12 +28,15 @@ def read_vanilla(name):
 
 
 test = read_vanilla("../data/VANILLA/Extended_Dataset_Test.json")
-responses = json_load("../processed_data/VANILLA/qanswer_test_responses_extended-0-1000.json")
+responses = json_load("../processed_data/VANILLA/qanswer_test_responses_extended-0-7000.json")
 labels = json_load("../processed_data/VANILLA/qanswer_test_responses_labels.json")
 
-is_true = []
+is_true = json_load("../processed_data/VANILLA/is_true.json")
+ids = [q['question_id'] for q in is_true]
 cnt = 0
 for i in tqdm(range(len(responses))):
+    if responses[i]['question_id'] in ids:
+        continue
     answers = list()
     if responses[i]['question_id'] != test[i]['question_id']:
         assert False
@@ -57,9 +60,9 @@ for i in tqdm(range(len(responses))):
     
     if cnt%50 == 0:
         print("SAVED", cnt)
-        json_save("../processed_data/VANILLA/is_true.json", is_true)
+        json_save("../processed_data/VANILLA/is_true-tmp.json", is_true)
         
     cnt += 1
     
 print("SAVED", cnt)
-json_save("../processed_data/VANILLA/is_true.json", is_true)
+json_save("../processed_data/VANILLA/is_true-tmp.json", is_true)
